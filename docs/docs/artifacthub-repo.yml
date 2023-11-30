@@ -1,0 +1,7 @@
+repositoryID: 18db91ff-0cb1-4d5f-b2a0-7860f26ab32a
+owners:
+  - name: oben01
+    email: oussama.dahmaz@gmail.com
+ignore:
+  - name: limo
+    version: ^0\.1\.[1-3]$
