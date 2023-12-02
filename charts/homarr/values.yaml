@@ -104,27 +104,37 @@ autoscaling:
 # -- Persistent storage configuration
 persistence:
   - name: homarr-config
-    # -- Enable this persistent storage
-    enabled: true
-    # -- Storage class name
+    # -- Enable homarr-config persistent storage
+    enabled: false
+    # -- homarr-config storage class name
     storageClassName: "local-path"
-    # -- Access mode
+    # -- homarr-config access mode
     accessMode: "ReadWriteOnce"
-    # -- Storage size
+    # -- homarr-config storage size
     size: "50Mi"
-    # -- Mount path inside the pod
+    # -- homarr-config mount path inside the pod
     mountPath: "/app/data/configs"
   - name: homarr-database
-    enabled: true
+    # -- Enable homarr-database persistent storage
+    enabled: false
+    # -- homarr-database storage class name
     storageClassName: "local-path"
+    # -- homarr-database access mode
     accessMode: "ReadWriteOnce"
+    # -- homarr-database storage size
     size: "50Mi"
+    # -- homarr-database mount path inside the pod
     mountPath: "/app/database"
   - name: homarr-icons
-    enabled: true
+    # -- Enable homarr-icons persistent storage
+    enabled: false
+    # -- homarr-icons storage class name
     storageClassName: "local-path"
+    # -- homarr-icons access mode
     accessMode: "ReadWriteOnce"
+    # -- homarr-icons storage size
     size: "50Mi"
+    # -- homarr-icons mount path inside the pod
     mountPath: "/app/public/icons"
 
 # -- Node selectors for pod scheduling

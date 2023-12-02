@@ -1,17 +1,25 @@
 # Homarr
 
-<img src="https://homarr.dev/img/logo.svg" align="right" width="92" alt="homarr logo">
+<img src="https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg" align="right" width="92" alt="homarr logo">
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat)
 ![AppVersion: 0.14.2](https://img.shields.io/badge/AppVersion-0.14.2-informational?style=flat)
 
 A Helm chart to deploy homarr for Kubernetes
 
+**Homepage:** <https://charts.oben01.com/charts/homarr/>
+
 **This chart is not maintained by the upstream project and any issues with the chart should be raised
-[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=homarr&version=0.1.1)**
+[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=homarr&version=1.0.0)**
+
+## Source Code
+
+* <https://github.com/ajnart/homarr>
 
 ## Requirements
+
+Kubernetes: `>=1.22.0-0`
 
 ## Dependencies
 
@@ -48,7 +56,6 @@ The command removes all the Kubernetes components associated with the chart **in
 ## Configuration
 
 Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
-Other values may be used from the [values.yaml](https://github.com/bjw-s/helm-charts/tree/a081de5/charts/library/common/values.yaml) from the [bjw-s common library](https://github.com/bjw-s/helm-charts/tree/a081de5/charts/library/common).
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
@@ -69,8 +76,6 @@ helm install homarr oben01/homarr -f values.yaml
 N/A
 
 ## Values
-
-**Important**: When deploying an application Helm chart you can add more values from the bjw-s common library chart [here](https://github.com/bjw-s/helm-charts/tree/a081de5/charts/library/common)
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
@@ -95,12 +100,22 @@ N/A
 | ingress.tls | list | `[]` | Ingress TLS configuration |
 | nameOverride | string | `""` | Overrides chart's name |
 | nodeSelector | object | `{}` | Node selectors for pod scheduling |
-| persistence | list | `[{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/app/data/configs","name":"homarr-config","size":"50Mi","storageClassName":"local-path"},{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/app/database","name":"homarr-database","size":"50Mi","storageClassName":"local-path"},{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/app/public/icons","name":"homarr-icons","size":"50Mi","storageClassName":"local-path"}]` | Persistent storage configuration |
-| persistence[0].accessMode | string | `"ReadWriteOnce"` | Access mode |
-| persistence[0].enabled | bool | `true` | Enable this persistent storage |
-| persistence[0].mountPath | string | `"/app/data/configs"` | Mount path inside the pod |
-| persistence[0].size | string | `"50Mi"` | Storage size |
-| persistence[0].storageClassName | string | `"local-path"` | Storage class name |
+| persistence | list | `[{"accessMode":"ReadWriteOnce","enabled":false,"mountPath":"/app/data/configs","name":"homarr-config","size":"50Mi","storageClassName":"local-path"},{"accessMode":"ReadWriteOnce","enabled":false,"mountPath":"/app/database","name":"homarr-database","size":"50Mi","storageClassName":"local-path"},{"accessMode":"ReadWriteOnce","enabled":false,"mountPath":"/app/public/icons","name":"homarr-icons","size":"50Mi","storageClassName":"local-path"}]` | Persistent storage configuration |
+| persistence[0].accessMode | string | `"ReadWriteOnce"` | homarr-config access mode |
+| persistence[0].enabled | bool | `false` | Enable homarr-config persistent storage |
+| persistence[0].mountPath | string | `"/app/data/configs"` | homarr-config mount path inside the pod |
+| persistence[0].size | string | `"50Mi"` | homarr-config storage size |
+| persistence[0].storageClassName | string | `"local-path"` | homarr-config storage class name |
+| persistence[1].accessMode | string | `"ReadWriteOnce"` | homarr-database access mode |
+| persistence[1].enabled | bool | `false` | Enable homarr-database persistent storage |
+| persistence[1].mountPath | string | `"/app/database"` | homarr-database mount path inside the pod |
+| persistence[1].size | string | `"50Mi"` | homarr-database storage size |
+| persistence[1].storageClassName | string | `"local-path"` | homarr-database storage class name |
+| persistence[2].accessMode | string | `"ReadWriteOnce"` | homarr-icons access mode |
+| persistence[2].enabled | bool | `false` | Enable homarr-icons persistent storage |
+| persistence[2].mountPath | string | `"/app/public/icons"` | homarr-icons mount path inside the pod |
+| persistence[2].size | string | `"50Mi"` | homarr-icons storage size |
+| persistence[2].storageClassName | string | `"local-path"` | homarr-icons storage class name |
 | podAnnotations | object | `{}` | Pod annotations |
 | podLabels | object | `{}` | Pod labels |
 | podSecurityContext | object | `{}` | Pod security context |
