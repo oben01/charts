@@ -1,7 +1,7 @@
 apiVersion: v2
 name: homarr
 description: A Helm chart to deploy homarr for Kubernetes
-home: https://charts.oben01.com/charts/homarr/
+home: https://oben01.github.io/charts/charts/homarr/
 type: application
 version: 1.0.0
 appVersion: "0.14.2"

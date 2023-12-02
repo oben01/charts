@@ -8,7 +8,7 @@
 
 A Helm chart to deploy homarr for Kubernetes
 
-**Homepage:** <https://charts.oben01.com/charts/homarr/>
+**Homepage:** <https://oben01.github.io/charts/charts/homarr/>
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised
 [here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=homarr&version=1.0.0)**
@@ -38,7 +38,7 @@ helm install homarr oci://ghcr.io/oben01/charts/homarr
 ### Traditional
 
 ```console
-helm repo add oben01 https://charts.oben01.com
+helm repo add oben01 https://oben01.github.io/charts/
 helm repo update
 helm install homarr oben01/homarr
 ```

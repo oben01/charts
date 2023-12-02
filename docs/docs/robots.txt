@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://charts.oben01.com/sitemap.xml
+Sitemap: https://oben01.github.io/sitemap.xml
