@@ -1,28 +1,56 @@
 apiVersion: v1
 entries:
- homarr:
+  homarr:
   - annotations:
-     artifacthub.io/changes: |-
-      - kind: changed
-        description: Update ajnart/homarr docker tag to 0.14.2
-     artifacthub.io/links: |-
-      - name: App Source
-        url: https://github.com/ajnart/homarr
-      - name: Chart Source
-        url: https://github.com/oben01/charts/tree/main/charts/homarr
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update ajnart/homarr docker tag to 0.14.2
+      artifacthub.io/links: |-
+        - name: App Source
+          url: https://github.com/ajnart/homarr
+        - name: Chart Source
+          url: https://github.com/oben01/charts/tree/main/charts/homarr
     apiVersion: v2
+    appVersion: 0.14.2
+    created: "2023-12-02T11:45:06.545820736Z"
+    description: A Helm chart to deploy homarr for Kubernetes
+    digest: 3ae4b65595416c9309704c5c867bae70052f1a5560c41328ea5fea676c7dc661
+    home: https://oben01.github.io/charts/charts/homarr/
+    icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
+    keywords:
+    - homarr
+    - dashboard
+    kubeVersion: '>=1.22.0-0'
     name: homarr
+    sources:
+    - https://github.com/ajnart/homarr
+    type: application
+    urls:
+    - https://github.com/oben01/charts/releases/download/homarr-1.0.1/homarr-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update ajnart/homarr docker tag to 0.14.2
+      artifacthub.io/links: |-
+        - name: App Source
+          url: https://github.com/ajnart/homarr
+        - name: Chart Source
+          url: https://github.com/oben01/charts/tree/main/charts/homarr
+    apiVersion: v2
+    appVersion: 0.14.2
+    created: "0001-01-01T00:00:00Z"
     description: A Helm chart to deploy homarr for Kubernetes
     home: https://charts.oben01.com/charts/homarr/
-    type: application
-    version: 1.0.0
-    appVersion: "0.14.2"
     icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
-
-    kubeVersion: ">=1.22.0-0"
     keywords:
-     - homarr
-     - dashboard
-
+    - homarr
+    - dashboard
+    kubeVersion: '>=1.22.0-0'
+    name: homarr
     sources:
-     - https://github.com/ajnart/homarr
+    - https://github.com/ajnart/homarr
+    type: application
+    urls: null
+    version: 1.0.0
+generated: "2023-12-02T11:45:06.545826707Z"
