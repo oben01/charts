@@ -1,0 +1,160 @@
+# Default values for dashdot.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+# -- Number of replicas
+image:
+  # -- Image repository
+  repository: mauricenino/dashdot
+  # -- Image pull policy
+  pullPolicy: IfNotPresent
+  # -- Overrides the image tag whose default is the chart appVersion
+  tag: "latest"
+
+env:
+  # -- Your local time zone
+  TZ: "Europe/Paris"
+  # -- If you want to show the host part in the server widget (e.g. dash. -> dash.mauz.dev).
+  #DASHDOT_SHOW_HOST: false
+  # -- If you want to show the version number of your dash. instance on the bottom right of the page, or alternatively on the GitHub icon (hover). The available options are: bottom_right, icon_hover.
+  #DASHDOT_SHOW_DASH_VERSION:
+  # -- If you want to show a custom host in the server widget (needs DASHDOT_SHOW_HOST enabled to work).
+  #DASHDOT_CUSTOM_HOST:
+  # -- If you want to show the CPU temperature in the graph. This will probably not work on a VPS, so you need to try it on your own if this works. For home servers it might work just fine.
+  #DASHDOT_ENABLE_CPU_TEMPS: false
+  # -- Shows any units in the imperial system, instead of the default metric.
+  #DASHDOT_USE_IMPERIAL: false
+  # -- To always show the current percentage of each graph in the top-left corner. Without enabling this, they will only be shown on lower resolution devices (mobile phones).
+  #DASHDOT_ALWAYS_SHOW_PERCENTAGES: false
+  # -- If you want to show a custom string in the browser page title.
+  #DASHDOT_PAGE_TITLE: "dash."
+  # -- The available options are: os, cpu, storage, ram, network, gpu.
+  #DASHDOT_WIDGET_LIST: "os,cpu,storage,ram,network"
+  # -- The available options are: os, arch, up_since, dash_version.
+  #DASHDOT_OS_LABEL_LIST: "os,arch,up_since"
+  # -- The available options are: brand, model, cores, threads, frequency.
+  #DASHDOT_CPU_LABEL_LIST: "brand,model,cores,threads,frequency"
+  # -- The available options are: brand, size, type.
+  #DASHDOT_STORAGE_LABEL_LIST: "brand,size,type"
+  # -- The available options are: brand, size, type, frequency.
+  #DASHDOT_RAM_LABEL_LIST: "brand,size,type,frequency"
+  # -- The available options are: type, speed_up, speed_down, interface_speed, public_ip.
+  #DASHDOT_NETWORK_LABEL_LIST: "type,speed_up,speed_down,interface_speed"
+  # -- The available options are: brand, model, memory.
+  #DASHDOT_GPU_LABEL_LIST: "brand, model, memory"
+
+# -- Secrets for Docker registry
+imagePullSecrets: []
+# -- Overrides chart's name
+nameOverride: ""
+# -- Overrides chart's fullname
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# -- Pod annotations
+podAnnotations: {}
+# -- Pod labels
+podLabels: {}
+# -- Pod security context
+podSecurityContext:
+  # -- needed to determine the memory and storage info.
+  privileged: true
+  # fsGroup: 2000
+
+# -- Security context
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+# -- Service configuration
+service:
+  # -- Service type
+  type: ClusterIP
+  # -- Service port
+  port: 3001
+  # -- Service target port
+  targetPort: 3001
+
+# -- Ingress configuration
+ingress:
+  # -- Enable ingress
+  enabled: false
+  # -- Ingress class name
+  className: ""
+  # -- Ingress annotations
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  # -- Ingress hosts configuration
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  # -- Ingress TLS configuration
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+# -- Resource configuration
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# -- Autoscaling configuration
+autoscaling:
+  # -- Enable autoscaling
+  enabled: false
+  # -- Minimum replicas
+  minReplicas: 1
+  # -- Maximum replicas
+  maxReplicas: 100
+  # -- Target CPU utilization for autoscaling
+  targetCPUUtilizationPercentage: 80
+  # -- Target Memory utilization for autoscaling
+  # targetMemoryUtilizationPercentage: 80
+
+# Additional volumes on the output Deployment definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
+# -- Node selectors for pod scheduling
+nodeSelector: {}
+# -- Node tolerations for pod scheduling
+tolerations: []
+# -- Node affinity for pod scheduling
+affinity: {}
