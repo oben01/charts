@@ -1,5 +1,33 @@
 apiVersion: v1
 entries:
+  dashdot:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
+          description: First import
+      artifacthub.io/links: |-
+        - name: App Source
+          url: https://github.com/MauriceNino/dashdot
+        - name: Chart Source
+          url: https://github.com/oben01/charts/tree/main/charts/dashdot
+    apiVersion: v2
+    appVersion: v5.2.3
+    created: "2023-12-17T20:05:51.384097413Z"
+    description: A Helm chart to deploy dashdot for Kubernetes
+    digest: 1e229b67f4b4a88d7f3c878d53edd6da1906041a2a98e714c9365e1b24be2c50
+    home: https://oben01.github.io/charts/charts/dashdot/
+    icon: https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg
+    keywords:
+    - dashdot
+    - dashboard
+    kubeVersion: '>=1.22.0-0'
+    name: dashdot
+    sources:
+    - https://github.com/MauriceNino/dashdot
+    type: application
+    urls:
+    - https://github.com/oben01/charts/releases/download/dashdot-1.0.0/dashdot-1.0.0.tgz
+    version: 1.0.0
   homarr:
   - annotations:
       artifacthub.io/changes: |-
@@ -53,4 +81,4 @@ entries:
     type: application
     urls: null
     version: 1.0.0
-generated: "2023-12-02T11:45:06.545826707Z"
+generated: "2023-12-17T20:05:51.384108433Z"
