@@ -11,6 +11,7 @@ Also available on [ArtifactHub](https://artifacthub.io/packages/search?repo=oben
 
 ## Chart Overview
 
-| Chart                                                                                                                                                                         | Description                                       |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| [Homarr <img src='https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg' alt='homarr icon' width='18px' align='center' loading='lazy'>](charts/homarr/) | A simple, yet powerful dashboard for your server. |
+| Chart                                                                                                                                                                            | Description                                       |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| [Homarr <img src='https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg' alt='homarr icon' width='18px' align='center' loading='lazy'>](charts/homarr/)    | A simple, yet powerful dashboard for your server. |
+| [Dashdot <img src='https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg' alt='dashdot icon' width='18px' align='center' loading='lazy'>](charts/dashdot/) | A modern server dashboard.                        |
