@@ -48,18 +48,19 @@ jobs:
           install_only: true
 
       # Optional step if GPG signing is used
-      - name: Prepare PGP key
+      - name: Prepare GPG key
         run: |
-          IFS=""
-          echo "$PGP_PRIVATE_KEY" | gpg --dearmor > $HOME/secring.gpg
-          echo "$PGP_PASSPHRASE" > $HOME/passphrase.txt
-
-          # Tell chart-releaser-action where to find the key and its passphrase
-          echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
-          echo "CR_PASSPHRASE_FILE=$HOME/passphrase.txt" >> "$GITHUB_ENV"
+          gpg_dir=.cr-gpg
+          mkdir "$gpg_dir"
+          keyring="$gpg_dir/secring.gpg"
+          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
+          passphrase_file="$gpg_dir/passphrase"
+          echo "$GPG_PASSPHRASE" > "$passphrase_file"
+          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
+          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
         env:
-          PGP_PRIVATE_KEY: "${{ secrets.PGP_PRIVATE_KEY }}"
-          PGP_PASSPHRASE: "${{ secrets.PGP_PASSPHRASE }}"
+          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
+          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Package charts
         id: package_charts
