@@ -47,6 +47,20 @@ jobs:
         with:
           install_only: true
 
+      # Optional step if GPG signing is used
+      - name: Prepare PGP key
+        run: |
+          IFS=""
+          echo "$PGP_PRIVATE_KEY" | gpg --dearmor > $HOME/secring.gpg
+          echo "$PGP_PASSPHRASE" > $HOME/passphrase.txt
+
+          # Tell chart-releaser-action where to find the key and its passphrase
+          echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
+          echo "CR_PASSPHRASE_FILE=$HOME/passphrase.txt" >> "$GITHUB_ENV"
+        env:
+          PGP_PRIVATE_KEY: "${{ secrets.PGP_PRIVATE_KEY }}"
+          PGP_PASSPHRASE: "${{ secrets.PGP_PASSPHRASE }}"
+
       - name: Package charts
         id: package_charts
         run: |
@@ -69,20 +83,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ github.token }}
-
-      # Optional step if GPG signing is used
-      - name: Prepare PGP key
-        run: |
-          IFS=""
-          echo "$PGP_PRIVATE_KEY" | gpg --dearmor > $HOME/secring.gpg
-          echo "$PGP_PASSPHRASE" > $HOME/passphrase.txt
-          
-          # Tell chart-releaser-action where to find the key and its passphrase
-          echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
-          echo "CR_PASSPHRASE_FILE=$HOME/passphrase.txt" >> "$GITHUB_ENV"
-        env:
-          PGP_PRIVATE_KEY: "${{ secrets.PGP_PRIVATE_KEY }}"
-          PGP_PASSPHRASE: "${{ secrets.PGP_PASSPHRASE }}"
 
       - name: Push charts to GHCR
         if: steps.package_charts.outputs.changed_charts != ''
