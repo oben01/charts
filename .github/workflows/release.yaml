@@ -113,6 +113,7 @@ jobs:
         if: steps.package_charts.outputs.changed_charts != ''
         with:
           skip_packaging: true
+          config: "./.github/configs/cr.yaml"
         env:
           CR_TOKEN: ${{ github.token }}
           CR_PAGES_BRANCH: helm-index
