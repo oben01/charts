@@ -2,6 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# ./update-changelog.sh append changelog ../charts/homarr/Chart.yaml
+
 # require yq
 command -v yq >/dev/null 2>&1 || {
   echo >&2 'yq (https://github.com/mikefarah/yq) is not installed. Aborting.'

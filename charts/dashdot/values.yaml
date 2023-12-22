@@ -17,33 +17,33 @@ env:
   # -- Your local time zone
   TZ: "Europe/Paris"
   # -- If you want to show the host part in the server widget (e.g. dash. -> dash.mauz.dev).
-  #DASHDOT_SHOW_HOST: false
+  DASHDOT_SHOW_HOST: false
   # -- If you want to show the version number of your dash. instance on the bottom right of the page, or alternatively on the GitHub icon (hover). The available options are: bottom_right, icon_hover.
-  #DASHDOT_SHOW_DASH_VERSION:
+  DASHDOT_SHOW_DASH_VERSION:
   # -- If you want to show a custom host in the server widget (needs DASHDOT_SHOW_HOST enabled to work).
-  #DASHDOT_CUSTOM_HOST:
+  DASHDOT_CUSTOM_HOST:
   # -- If you want to show the CPU temperature in the graph. This will probably not work on a VPS, so you need to try it on your own if this works. For home servers it might work just fine.
-  #DASHDOT_ENABLE_CPU_TEMPS: false
+  DASHDOT_ENABLE_CPU_TEMPS: false
   # -- Shows any units in the imperial system, instead of the default metric.
-  #DASHDOT_USE_IMPERIAL: false
+  DASHDOT_USE_IMPERIAL: false
   # -- To always show the current percentage of each graph in the top-left corner. Without enabling this, they will only be shown on lower resolution devices (mobile phones).
-  #DASHDOT_ALWAYS_SHOW_PERCENTAGES: false
+  DASHDOT_ALWAYS_SHOW_PERCENTAGES: false
   # -- If you want to show a custom string in the browser page title.
-  #DASHDOT_PAGE_TITLE: "dash."
+  DASHDOT_PAGE_TITLE: "dash."
   # -- The available options are: os, cpu, storage, ram, network, gpu.
-  #DASHDOT_WIDGET_LIST: "os,cpu,storage,ram,network"
+  DASHDOT_WIDGET_LIST: "os,cpu,storage,ram,network"
   # -- The available options are: os, arch, up_since, dash_version.
-  #DASHDOT_OS_LABEL_LIST: "os,arch,up_since"
+  DASHDOT_OS_LABEL_LIST: "os,arch,up_since"
   # -- The available options are: brand, model, cores, threads, frequency.
-  #DASHDOT_CPU_LABEL_LIST: "brand,model,cores,threads,frequency"
+  DASHDOT_CPU_LABEL_LIST: "brand,model,cores,threads,frequency"
   # -- The available options are: brand, size, type.
-  #DASHDOT_STORAGE_LABEL_LIST: "brand,size,type"
+  DASHDOT_STORAGE_LABEL_LIST: "brand,size,type"
   # -- The available options are: brand, size, type, frequency.
-  #DASHDOT_RAM_LABEL_LIST: "brand,size,type,frequency"
+  DASHDOT_RAM_LABEL_LIST: "brand,size,type,frequency"
   # -- The available options are: type, speed_up, speed_down, interface_speed, public_ip.
-  #DASHDOT_NETWORK_LABEL_LIST: "type,speed_up,speed_down,interface_speed"
+  DASHDOT_NETWORK_LABEL_LIST: "type,speed_up,speed_down,interface_speed"
   # -- The available options are: brand, model, memory.
-  #DASHDOT_GPU_LABEL_LIST: "brand, model, memory"
+  DASHDOT_GPU_LABEL_LIST: "brand, model, memory"
 
 # -- Secrets for Docker registry
 imagePullSecrets: []

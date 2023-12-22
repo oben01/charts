@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg" align="right" width="92" alt="dashdot logo">
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat)
 ![AppVersion: v5.2.3](https://img.shields.io/badge/AppVersion-v5.2.3-informational?style=flat)
 
@@ -11,7 +11,7 @@ A Helm chart to deploy dashdot for Kubernetes
 **Homepage:** <https://oben01.github.io/charts/charts/dashdot/>
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised
-[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=dashdot&version=1.0.0)**
+[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=dashdot&version=1.0.1)**
 
 ## Source Code
 
@@ -85,6 +85,20 @@ N/A
 | autoscaling.maxReplicas | int | `100` | Maximum replicas |
 | autoscaling.minReplicas | int | `1` | Minimum replicas |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` | Target CPU utilization for autoscaling |
+| env.DASHDOT_ALWAYS_SHOW_PERCENTAGES | bool | `false` | To always show the current percentage of each graph in the top-left corner. Without enabling this, they will only be shown on lower resolution devices (mobile phones). |
+| env.DASHDOT_CPU_LABEL_LIST | string | `"brand,model,cores,threads,frequency"` | The available options are: brand, model, cores, threads, frequency. |
+| env.DASHDOT_CUSTOM_HOST | string | `nil` | If you want to show a custom host in the server widget (needs DASHDOT_SHOW_HOST enabled to work). |
+| env.DASHDOT_ENABLE_CPU_TEMPS | bool | `false` | If you want to show the CPU temperature in the graph. This will probably not work on a VPS, so you need to try it on your own if this works. For home servers it might work just fine. |
+| env.DASHDOT_GPU_LABEL_LIST | string | `"brand, model, memory"` | The available options are: brand, model, memory. |
+| env.DASHDOT_NETWORK_LABEL_LIST | string | `"type,speed_up,speed_down,interface_speed"` | The available options are: type, speed_up, speed_down, interface_speed, public_ip. |
+| env.DASHDOT_OS_LABEL_LIST | string | `"os,arch,up_since"` | The available options are: os, arch, up_since, dash_version. |
+| env.DASHDOT_PAGE_TITLE | string | `"dash."` | If you want to show a custom string in the browser page title. |
+| env.DASHDOT_RAM_LABEL_LIST | string | `"brand,size,type,frequency"` | The available options are: brand, size, type, frequency. |
+| env.DASHDOT_SHOW_DASH_VERSION | string | `nil` | If you want to show the version number of your dash. instance on the bottom right of the page, or alternatively on the GitHub icon (hover). The available options are: bottom_right, icon_hover. |
+| env.DASHDOT_SHOW_HOST | bool | `false` | If you want to show the host part in the server widget (e.g. dash. -> dash.mauz.dev). |
+| env.DASHDOT_STORAGE_LABEL_LIST | string | `"brand,size,type"` | The available options are: brand, size, type. |
+| env.DASHDOT_USE_IMPERIAL | bool | `false` | Shows any units in the imperial system, instead of the default metric. |
+| env.DASHDOT_WIDGET_LIST | string | `"os,cpu,storage,ram,network"` | The available options are: os, cpu, storage, ram, network, gpu. |
 | env.TZ | string | `"Europe/Paris"` | Your local time zone |
 | fullnameOverride | string | `""` | Overrides chart's fullname |
 | image | object | `{"pullPolicy":"IfNotPresent","repository":"mauricenino/dashdot","tag":"latest"}` | Number of replicas |
