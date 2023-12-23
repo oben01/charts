@@ -74,14 +74,13 @@ jobs:
       - name: Package charts
         id: package_charts
         run: |
-          gpg --list-secret-keys
           changed_charts=""
           for dir in charts/*; do
             chart_name="$(basename "$dir")"
             version="$(yq '.version' "$dir/Chart.yaml")"
             if ! git rev-parse "$chart_name-${version#v}" &>/dev/null; then
               echo "Packaging chart $chart_name..."
-              cr package --package-path=.cr-release-packages "$dir"
+              GNUPGHOME=.cr-gpg cr package --package-path=.cr-release-packages "$dir"
               changed_charts+="$chart_name,"
             fi
           done
@@ -90,6 +89,7 @@ jobs:
         env:
           CR_PASSPHRASE_FILE: .cr-gpg/passphrase
           CR_KEYRING: .cr-gpg/secring.gpg
+          GNUPGHOME: .cr-gpg  # Explicitly set the GPG home directory
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
