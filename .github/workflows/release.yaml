@@ -42,54 +42,30 @@ jobs:
             sed -i '/^<img .* alt=".* logo"/,+1d' "$f"
           done
 
-      - name: Install chart-releaser
+      # The GitHub repository secret `PGP_PRIVATE_KEY` contains the private key
+      # in ASCII-armored format. To export a (new) key, run this command:
+      # `gpg --armor --export-secret-key <my key>`
+      - name: Prepare PGP key
+        run: |
+          IFS=""
+          echo "$PGP_PRIVATE_KEY" | gpg --dearmor > $HOME/secring.gpg
+          echo "$PGP_PASSPHRASE" > $HOME/passphrase.txt
+
+          # Tell chart-releaser-action where to find the key and its passphrase
+          echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
+          echo "CR_PASSPHRASE_FILE=$HOME/passphrase.txt" >> "$GITHUB_ENV"
+        env:
+          PGP_PRIVATE_KEY: "${{ secrets.PGP_PRIVATE_KEY }}"
+          PGP_PASSPHRASE: "${{ secrets.PGP_PASSPHRASE }}"
+
+      - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
+        if: steps.package_charts.outputs.changed_charts != ''
         with:
-          install_only: true
-
-      # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        run: |
-          gpg_dir=.cr-gpg
-          mkdir "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-          # Debug statements
-          echo "GPG Keyring: $keyring"
-          echo "GPG Passphrase File: $passphrase_file"
-          echo "Contents of Passphrase File: $(cat $passphrase_file)"
+          config: "./.github/configs/cr.yaml"
         env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-
-      - name: Debug GPG Keys
-        run: gpg --list-secret-keys
-        env:
-          GNUPGHOME: .cr-gpg
-
-      - name: Package charts
-        id: package_charts
-        run: |
-          changed_charts=""
-          for dir in charts/*; do
-            chart_name="$(basename "$dir")"
-            version="$(yq '.version' "$dir/Chart.yaml")"
-            if ! git rev-parse "$chart_name-${version#v}" &>/dev/null; then
-              echo "Packaging chart $chart_name..."
-              GNUPGHOME=.cr-gpg cr package --package-path=.cr-release-packages --keyring=.cr-gpg/pubring.gpg "$dir"
-              changed_charts+="$chart_name,"
-            fi
-          done
-          echo "changed_charts=${changed_charts%,}" >> $GITHUB_OUTPUT
-        shell: /usr/bin/bash -e {0}
-        env:
-          CR_PASSPHRASE_FILE: .cr-gpg/passphrase
-          CR_KEYRING: .cr-gpg/secring.gpg
-          GNUPGHOME: .cr-gpg
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          CR_PAGES_BRANCH: helm-index
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
@@ -99,26 +75,16 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ github.token }}
 
-      - name: Push charts to GHCR
-        if: steps.package_charts.outputs.changed_charts != ''
+      - name: Push chart to GHCR
         run: |
-          for pkg in .cr-release-packages/*; do
+          shopt -s nullglob
+          for pkg in .cr-release-packages/*.tgz; do
             if [ -z "${pkg:-}" ]; then
-              break
+             break
             fi
-            echo "Pushing $pkg..."
-            helm push "$pkg" "oci://ghcr.io/$GITHUB_REPOSITORY_OWNER/charts"
+            helm push "${pkg}" oci://ghcr.io/${{ github.repository }}
           done
 
-      - name: Publish charts
-        uses: helm/chart-releaser-action@v1.6.0
-        if: steps.package_charts.outputs.changed_charts != ''
-        with:
-          skip_packaging: true
-          config: "cr.yaml"
-        env:
-          CR_TOKEN: ${{ github.token }}
-          CR_PAGES_BRANCH: helm-index
   build-docs:
     name: Build Docs
     runs-on: ubuntu-latest
