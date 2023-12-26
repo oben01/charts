@@ -42,6 +42,9 @@ jobs:
             sed -i '/^<img .* alt=".* logo"/,+1d' "$f"
           done
 
+      - name: Debug PGP Private Key
+        run: echo "${{ secrets.PGP_PRIVATE_KEY }}"
+
       # The GitHub repository secret `PGP_PRIVATE_KEY` contains the private key
       # in ASCII-armored format. To export a (new) key, run this command:
       # `gpg --armor --export-secret-key <my key>`
