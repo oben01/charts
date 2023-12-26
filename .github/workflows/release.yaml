@@ -48,7 +48,7 @@ jobs:
       - name: Prepare PGP key
         run: |
           IFS=""
-          echo "GPG_KEYRING_BASE64" | gpg --dearmor > $HOME/secring.gpg
+          echo "PGP_PRIVATE_KEY" | gpg --dearmor > $HOME/secring.gpg
           echo "$PGP_PASSPHRASE" > $HOME/passphrase.txt
 
           # Tell chart-releaser-action where to find the key and its passphrase
