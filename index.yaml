@@ -5,6 +5,37 @@ entries:
       artifacthub.io/changes: |-
         - kind: added
           description: First import
+        - kind: added
+          description: add more env variables
+        - kind: added
+          description: update chart version
+      artifacthub.io/links: |-
+        - name: App Source
+          url: https://github.com/MauriceNino/dashdot
+        - name: Chart Source
+          url: https://github.com/oben01/charts/tree/main/charts/dashdot
+    apiVersion: v2
+    appVersion: v5.2.3
+    created: "2023-12-27T15:45:17.897283401Z"
+    description: A Helm chart to deploy dashdot for Kubernetes
+    digest: a25b3ae7e3abec66ee4e49583491043ca2bb27ad55e2ba6907f162b8e040b718
+    home: https://oben01.github.io/charts/charts/dashdot/
+    icon: https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg
+    keywords:
+    - dashdot
+    - dashboard
+    kubeVersion: '>=1.22.0-0'
+    name: dashdot
+    sources:
+    - https://github.com/MauriceNino/dashdot
+    type: application
+    urls:
+    - https://github.com/oben01/charts/releases/download/dashdot-1.0.2/dashdot-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
+          description: First import
       artifacthub.io/links: |-
         - name: App Source
           url: https://github.com/MauriceNino/dashdot
@@ -29,6 +60,35 @@ entries:
     - https://github.com/oben01/charts/releases/download/dashdot-1.0.0/dashdot-1.0.0.tgz
     version: 1.0.0
   homarr:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Update ajnart/homarr docker tag to 0.14.2
+        - kind: added
+          description: update chart version
+      artifacthub.io/links: |-
+        - name: App Source
+          url: https://github.com/ajnart/homarr
+        - name: Chart Source
+          url: https://github.com/oben01/charts/tree/main/charts/homarr
+    apiVersion: v2
+    appVersion: 0.14.2
+    created: "2023-12-27T15:45:18.006018234Z"
+    description: A Helm chart to deploy homarr for Kubernetes
+    digest: 67f66219c09c9bd96f0a37fa902bfa0071a900e16ad43b34a32c3893b6ec7107
+    home: https://oben01.github.io/charts/charts/homarr/
+    icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
+    keywords:
+    - homarr
+    - dashboard
+    kubeVersion: '>=1.22.0-0'
+    name: homarr
+    sources:
+    - https://github.com/ajnart/homarr
+    type: application
+    urls:
+    - https://github.com/oben01/charts/releases/download/homarr-1.0.2/homarr-1.0.2.tgz
+    version: 1.0.2
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
@@ -81,4 +141,4 @@ entries:
     type: application
     urls: null
     version: 1.0.0
-generated: "2023-12-17T20:05:51.384108433Z"
+generated: "2023-12-27T15:45:18.006035355Z"
