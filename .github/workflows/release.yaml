@@ -42,9 +42,6 @@ jobs:
             sed -i '/^<img .* alt=".* logo"/,+1d' "$f"
           done
 
-      - name: Debug PGP Private Key
-        run: echo "${{ secrets.PGP_PRIVATE_KEY }}"
-
       # The GitHub repository secret `PGP_PRIVATE_KEY` contains the private key
       # in ASCII-armored format. To export a (new) key, run this command:
       # `gpg --armor --export-secret-key <my key>`
@@ -58,7 +55,7 @@ jobs:
           echo "CR_KEYRING=$HOME/secring.gpg" >> "$GITHUB_ENV"
           echo "CR_PASSPHRASE_FILE=$HOME/passphrase.txt" >> "$GITHUB_ENV"
         env:
-          PGP_PRIVATE_KEY: "${{ secrets.GPG_KEYRING_BASE64 }}"
+          PGP_PRIVATE_KEY: "${{ secrets.PGP_PRIVATE_KEY }}"
           PGP_PASSPHRASE: "${{ secrets.PGP_PASSPHRASE }}"
 
       - name: Run chart-releaser
