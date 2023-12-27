@@ -48,7 +48,7 @@ jobs:
       - name: Prepare PGP key
         run: |
           IFS=""
-          echo "PGP_PRIVATE_KEY" | gpg --dearmor > $HOME/secring.gpg
+          base64 -d <<< "$GPG_KEYRING_BASE64" > $HOME/secring.gpg
           echo "$PGP_PASSPHRASE" > $HOME/passphrase.txt
 
           # Tell chart-releaser-action where to find the key and its passphrase
@@ -56,6 +56,7 @@ jobs:
           echo "CR_PASSPHRASE_FILE=$HOME/passphrase.txt" >> "$GITHUB_ENV"
         env:
           PGP_PRIVATE_KEY: "${{ secrets.PGP_PRIVATE_KEY }}"
+          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           PGP_PASSPHRASE: "${{ secrets.PGP_PASSPHRASE }}"
 
       - name: Run chart-releaser
