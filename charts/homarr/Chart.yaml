@@ -3,7 +3,7 @@ name: homarr
 description: A Helm chart to deploy homarr for Kubernetes
 home: https://oben01.github.io/charts/charts/homarr/
 type: application
-version: 1.0.3
+version: 1.0.4
 appVersion: "0.14.2"
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
 

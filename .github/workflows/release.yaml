@@ -30,6 +30,10 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
+      - name: Fetch current Chart Index
+        run: |
+          git checkout origin/helm-index index.yaml
+
       - name: Add Helm repos
         run: |
           helm repo add bitnami https://charts.bitnami.com/bitnami

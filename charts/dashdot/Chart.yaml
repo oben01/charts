@@ -3,7 +3,7 @@ name: dashdot
 description: A Helm chart to deploy dashdot for Kubernetes
 home: https://oben01.github.io/charts/charts/dashdot/
 type: application
-version: 1.0.3
+version: 1.0.4
 appVersion: v5.2.3
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg
 kubeVersion: ">=1.22.0-0"
