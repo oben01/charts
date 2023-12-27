@@ -3,7 +3,7 @@ name: homarr
 description: A Helm chart to deploy homarr for Kubernetes
 home: https://oben01.github.io/charts/charts/homarr/
 type: application
-version: 1.0.1
+version: 1.0.2
 appVersion: "0.14.2"
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
 
@@ -18,6 +18,8 @@ annotations:
  artifacthub.io/changes: |-
   - kind: changed
     description: Update ajnart/homarr docker tag to 0.14.2
+  - kind: added
+    description: update chart version
  artifacthub.io/links: |-
   - name: App Source
     url: https://github.com/ajnart/homarr
