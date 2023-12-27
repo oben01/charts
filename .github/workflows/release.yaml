@@ -42,6 +42,11 @@ jobs:
             sed -i '/^<img .* alt=".* logo"/,+1d' "$f"
           done
 
+      - name: Install chart-releaser
+        uses: helm/chart-releaser-action@v1.6.0
+        with:
+          install_only: true
+
       - name: Package charts
         id: package_charts
         run: |
