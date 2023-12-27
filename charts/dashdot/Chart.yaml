@@ -3,7 +3,7 @@ name: dashdot
 description: A Helm chart to deploy dashdot for Kubernetes
 home: https://oben01.github.io/charts/charts/dashdot/
 type: application
-version: 1.0.2
+version: 1.0.3
 appVersion: v5.2.3
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg
 kubeVersion: ">=1.22.0-0"
@@ -13,11 +13,16 @@ keywords:
 sources:
   - https://github.com/MauriceNino/dashdot
 annotations:
+  artifacthub.io/signKey: |
+    fingerprint: FA3F63F603B62356663A88F073AE49623786E060
+    url: https://oben01.github.io/charts/pgp_keys.asc
   artifacthub.io/changes: |-
     - kind: added
       description: First import
     - kind: added
       description: add more env variables
+    - kind: added
+      description: update chart version
     - kind: added
       description: update chart version
   artifacthub.io/links: |-

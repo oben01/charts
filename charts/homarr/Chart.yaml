@@ -3,7 +3,7 @@ name: homarr
 description: A Helm chart to deploy homarr for Kubernetes
 home: https://oben01.github.io/charts/charts/homarr/
 type: application
-version: 1.0.2
+version: 1.0.3
 appVersion: "0.14.2"
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
 
@@ -15,9 +15,14 @@ keywords:
 sources:
  - https://github.com/ajnart/homarr
 annotations:
+ artifacthub.io/signKey: |
+  fingerprint: FA3F63F603B62356663A88F073AE49623786E060
+  url: https://oben01.github.io/charts/pgp_keys.asc
  artifacthub.io/changes: |-
   - kind: changed
     description: Update ajnart/homarr docker tag to 0.14.2
+  - kind: added
+    description: update chart version
   - kind: added
     description: update chart version
  artifacthub.io/links: |-
