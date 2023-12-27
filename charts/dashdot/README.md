@@ -17,15 +17,15 @@ A Helm chart to deploy dashdot for Kubernetes
 
 * <https://github.com/MauriceNino/dashdot>
 
-## Requirements
+## 📄 Requirements
 
 Kubernetes: `>=1.22.0-0`
 
-## Dependencies
+## 🍱 Dependencies
 
 This chart has no dependencies.
 
-## Installing the Chart
+## 🚀 Installing the Chart
 
 To install the chart with the release name `dashdot`
 
@@ -43,7 +43,7 @@ helm repo update
 helm install dashdot oben01/dashdot
 ```
 
-## Uninstalling the Chart
+## ➖ Uninstalling the Chart
 
 To uninstall the `dashdot` deployment
 
@@ -53,7 +53,7 @@ helm uninstall dashdot
 
 The command removes all the Kubernetes components associated with the chart **including persistent volumes** and deletes the release.
 
-## Configuration
+## 🔧 Configuration
 
 Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
 
@@ -71,11 +71,11 @@ Alternatively, a YAML file that specifies the values for the above parameters ca
 helm install dashdot oben01/dashdot -f values.yaml
 ```
 
-## Custom configuration
+## 🎨 Custom configuration
 
 N/A
 
-## Values
+## 🗃 Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|

@@ -24,13 +24,13 @@ oci://ghcr.io/oben01/charts
 {{- end -}}
 
 {{- define "custom.requirements" -}}
-## Requirements
+## 📄 Requirements
 
 {{ template "chart.kubeVersionLine" . }}
 {{- end -}}
 
 {{- define "custom.dependencies" -}}
-## Dependencies
+## 🍱 Dependencies
 
 {{ if gt (len .Dependencies) 0 }}
 | Repository | Name | Version |
@@ -48,7 +48,7 @@ This chart has no dependencies.
 {{- end -}}
 
 {{- define "custom.install" -}}
-## Installing the Chart
+## 🚀 Installing the Chart
 
 To install the chart with the release name `{{ template "chart.name" . }}`
 
@@ -68,7 +68,7 @@ helm install {{ template "chart.name" . }} {{ template "custom.helm.path" . }}
 {{- end -}}
 
 {{- define "custom.uninstall" -}}
-## Uninstalling the Chart
+## ➖ Uninstalling the Chart
 
 To uninstall the `{{ template "chart.name" . }}` deployment
 
@@ -80,7 +80,7 @@ The command removes all the Kubernetes components associated with the chart **in
 {{- end -}}
 
 {{- define "custom.configuration.header" -}}
-## Configuration
+## 🔧 Configuration
 {{- end -}}
 
 {{- define "custom.configuration.readValues" -}}
@@ -106,7 +106,7 @@ helm install {{ template "chart.name" . }} {{ template "custom.helm.path" . }} -
 {{- end -}}
 
 {{- define "custom.valuesSection" -}}
-## Values
+## 🗃 Values
 
 {{ template "chart.valuesTable" . }}
 {{- end -}}
