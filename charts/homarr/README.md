@@ -4,7 +4,7 @@
 
 ![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat)
-![AppVersion: 0.14.2](https://img.shields.io/badge/AppVersion-0.14.2-informational?style=flat)
+![AppVersion: 0.14.4](https://img.shields.io/badge/AppVersion-0.14.4-informational?style=flat)
 
 A Helm chart to deploy homarr for Kubernetes
 
@@ -90,7 +90,7 @@ N/A
 | fullnameOverride | string | `""` | Overrides chart's fullname |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"ghcr.io/ajnart/homarr"` | Image repository |
-| image.tag | string | `"latest"` | Overrides the image tag whose default is the chart appVersion |
+| image.tag | string | `"0.14.4"` | Overrides the image tag whose default is the chart appVersion |
 | imagePullSecrets | list | `[]` | Secrets for Docker registry |
 | ingress | object | `{"annotations":{},"enabled":false,"hosts":[{"host":"chart-example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"ingressClassName":"","tls":[]}` | Ingress configuration |
 | ingress.annotations | object | `{}` | Ingress annotations |
