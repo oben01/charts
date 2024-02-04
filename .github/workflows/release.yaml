@@ -87,6 +87,7 @@ jobs:
         if: steps.package_charts.outputs.changed_charts != ''
         with:
           config: "./.github/configs/cr.yaml"
+          skip_packaging: true
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           CR_PAGES_BRANCH: helm-index
