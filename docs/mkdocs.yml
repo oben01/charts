@@ -13,13 +13,29 @@ theme:
   logo: assets/icons/icon.webp
   favicon: assets/icons/favicon.ico
   palette:
-    scheme: disabled
-    primary: indigo
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
   features:
     - navigation.tabs
     - navigation.instant
     - search.suggest
     - content.code.copy
+    - content.tooltips
   icon:
     repo: fontawesome/brands/github
 
@@ -34,6 +50,7 @@ extra_css:
 plugins:
   - search
   - tags
+  - privacy
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
