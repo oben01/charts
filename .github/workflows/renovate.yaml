@@ -69,7 +69,7 @@ jobs:
           ./hack/update-version.sh "$TYPE" ${{ steps.changes.outputs.charts_files }}
 
       - name: Install helm-docs
-        uses: oben01/setup-helm-docs-action@v1
+        uses: gabe565/setup-helm-docs-action@v1
       - name: Generate Helm docs
         run: |
           set -eu
