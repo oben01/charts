@@ -90,7 +90,7 @@ N/A
 | fullnameOverride | string | `""` | Overrides chart's fullname |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"ghcr.io/ajnart/homarr"` | Image repository |
-| image.tag | string | `"0.14.4"` | Overrides the image tag whose default is the chart appVersion |
+| image.tag | string | `"0.14.6"` | Overrides the image tag whose default is the chart appVersion |
 | imagePullSecrets | list | `[]` | Secrets for Docker registry |
 | ingress | object | `{"annotations":{},"enabled":false,"hosts":[{"host":"chart-example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"ingressClassName":"","tls":[]}` | Ingress configuration |
 | ingress.annotations | object | `{}` | Ingress annotations |
