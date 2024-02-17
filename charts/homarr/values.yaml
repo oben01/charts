@@ -17,6 +17,40 @@ env:
   TZ: "Europe/Paris"
   # -- Colors and preferences, possible values dark / light
   DEFAULT_COLOR_SCHEME: "dark"
+  # -- Enabled authentication methods. Multiple providers can be enabled with by separating them with , (ex. AUTH_PROVIDER=credentials,oidc, it is highly recommended to just enable one provider).
+  AUTH_PROVIDER: "credentials"
+  # -- URI of your LDAP server
+  AUTH_LDAP_URI:
+  # -- Base dn of your LDAP server
+  AUTH_LDAP_BASE:
+  # -- User used for finding users and groups
+  AUTH_LDAP_BIND_DN:
+  # -- Password for bind user
+  AUTH_LDAP_BIND_PASSWORD:
+  # -- Attribute used for username
+  AUTH_LDAP_USERNAME_ATTRIBUTE: "uid"
+  # -- Class used for querying groups
+  AUTH_LDAP_GROUP_CLASS: "groupOfUniqueNames"
+  # -- Attribute used for querying group member
+  AUTH_LDAP_GROUP_MEMBER_ATTRIBUTE: "member"
+  # -- User attribute used for comparing with group member
+  AUTH_LDAP_GROUP_MEMBER_USER_ATTRIBUTE: "dn"
+  # -- Admin group
+  AUTH_LDAP_ADMIN_GROUP: "admin"
+  # -- Owner group
+  AUTH_LDAP_OWNER_GROUP: "admin"
+  # -- URI of OIDC provider
+  AUTH_OIDC_URI:
+  # -- ID of OIDC client (application)
+  AUTH_OIDC_CLIENT_ID:
+  # -- Secret of OIDC client (application)
+  AUTH_OIDC_CLIENT_SECRET:
+  # -- Display name of provider (in login screen)
+  AUTH_OIDC_CLIENT_NAME: "OIDC"
+  # -- Admin group
+  AUTH_OIDC_ADMIN_GROUP: "admin"
+  # -- Owner group
+  AUTH_OIDC_OWNER_GROUP: "admin"
 
 # -- Secrets for Docker registry
 imagePullSecrets: []
