@@ -5,7 +5,7 @@ home: https://oben01.github.io/charts/charts/homarr/
 type: application
 version: 1.0.6
 # renovate datasource=docker depName=ghcr.io/ajnart/homarr
-appVersion: "0.14.6"
+appVersion: "0.15.0"
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
 
 kubeVersion: ">=1.22.0-0"
