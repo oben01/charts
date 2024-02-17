@@ -3,27 +3,27 @@ name: homarr
 description: A Helm chart to deploy homarr for Kubernetes
 home: https://oben01.github.io/charts/charts/homarr/
 type: application
-version: 1.0.6
+version: 1.1.0
 # renovate datasource=docker depName=ghcr.io/ajnart/homarr
-appVersion: "0.14.6"
+appVersion: "0.15.0"
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
-
 kubeVersion: ">=1.22.0-0"
 keywords:
- - homarr
- - dashboard
-
+  - homarr
+  - dashboard
 sources:
- - https://github.com/ajnart/homarr
+  - https://github.com/ajnart/homarr
 annotations:
- artifacthub.io/signKey: |
-  fingerprint: FA3F63F603B62356663A88F073AE49623786E060
-  url: https://oben01.github.io/charts/pgp_keys.asc
- artifacthub.io/changes: |-
-  - kind: changed
-    description: Update ajnart/homarr docker tag to 0.14.6
- artifacthub.io/links: |-
-  - name: App Source
-    url: https://github.com/ajnart/homarr
-  - name: Chart Source
-    url: https://github.com/oben01/charts/tree/main/charts/homarr
+  artifacthub.io/signKey: |
+    fingerprint: FA3F63F603B62356663A88F073AE49623786E060
+    url: https://oben01.github.io/charts/pgp_keys.asc
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: Update ghcr.io/ajnart/homarr docker tag to v0.15.0
+    - kind: added
+      description: Added single sign on env variables
+  artifacthub.io/links: |-
+    - name: App Source
+      url: https://github.com/ajnart/homarr
+    - name: Chart Source
+      url: https://github.com/oben01/charts/tree/main/charts/homarr
