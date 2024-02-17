@@ -100,22 +100,10 @@ N/A
 | ingress.tls | list | `[]` | Ingress TLS configuration |
 | nameOverride | string | `""` | Overrides chart's name |
 | nodeSelector | object | `{}` | Node selectors for pod scheduling |
-| persistence | list | `[{"accessMode":"ReadWriteOnce","enabled":false,"mountPath":"/app/data/configs","name":"homarr-config","size":"50Mi","storageClassName":"local-path"},{"accessMode":"ReadWriteOnce","enabled":false,"mountPath":"/app/database","name":"homarr-database","size":"50Mi","storageClassName":"local-path"},{"accessMode":"ReadWriteOnce","enabled":false,"mountPath":"/app/public/icons","name":"homarr-icons","size":"50Mi","storageClassName":"local-path"}]` | Persistent storage configuration |
-| persistence[0].accessMode | string | `"ReadWriteOnce"` | homarr-config access mode |
-| persistence[0].enabled | bool | `false` | Enable homarr-config persistent storage |
-| persistence[0].mountPath | string | `"/app/data/configs"` | homarr-config mount path inside the pod |
-| persistence[0].size | string | `"50Mi"` | homarr-config storage size |
-| persistence[0].storageClassName | string | `"local-path"` | homarr-config storage class name |
-| persistence[1].accessMode | string | `"ReadWriteOnce"` | homarr-database access mode |
-| persistence[1].enabled | bool | `false` | Enable homarr-database persistent storage |
-| persistence[1].mountPath | string | `"/app/database"` | homarr-database mount path inside the pod |
-| persistence[1].size | string | `"50Mi"` | homarr-database storage size |
-| persistence[1].storageClassName | string | `"local-path"` | homarr-database storage class name |
-| persistence[2].accessMode | string | `"ReadWriteOnce"` | homarr-icons access mode |
-| persistence[2].enabled | bool | `false` | Enable homarr-icons persistent storage |
-| persistence[2].mountPath | string | `"/app/public/icons"` | homarr-icons mount path inside the pod |
-| persistence[2].size | string | `"50Mi"` | homarr-icons storage size |
-| persistence[2].storageClassName | string | `"local-path"` | homarr-icons storage class name |
+| persistence | object | `{"accessMode":"ReadWriteOnce","enabled":true,"mountPaths":[{"mountPath":"/app/data/configs","name":"homarr-config"},{"mountPath":"/app/database","name":"homarr-database"},{"mountPath":"/app/public/icons","name":"homarr-icons"}],"name":"homarr-storage","size":"150Mi","storageClassName":"local-storage","volumesMergesEnabled":true}` | Persistent storage configuration |
+| persistence.mountPaths[0].mountPath | string | `"/app/data/configs"` | homarr-config mount path inside the pod |
+| persistence.mountPaths[1].mountPath | string | `"/app/database"` | homarr-database mount path inside the pod |
+| persistence.mountPaths[2].mountPath | string | `"/app/public/icons"` | homarr-icons mount path inside the pod |
 | podAnnotations | object | `{}` | Pod annotations |
 | podLabels | object | `{}` | Pod labels |
 | podSecurityContext | object | `{}` | Pod security context |

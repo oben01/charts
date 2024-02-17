@@ -1,0 +1,48 @@
+# Source: homarr/templates/homarr-volumes-copy-job.yaml
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: homarr-storage-pvc
+  namespace: homarr
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "standard"
+  resources:
+    requests:
+      storage: 150Mi
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "release-name"
+  labels:
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/version: 0.14.6
+    helm.sh/chart: "homarr-1.0.6"
+  namespace: homarr
+spec:
+  template:
+    metadata:
+      name: "release-name"
+      labels:
+        app.kubernetes.io/managed-by: "Helm"
+        helm.sh/chart: "homarr-1.0.6"
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: post-install-job
+          image: "alpine:3.3"
+          command: [ "/bin/sh" ]
+          args:
+            - -c
+            - |
+              cp -a /homarr-config/* /app/data/configs/
+              cp -a /homarr-database/* /app/database/
+              cp -a /homarr-icons/* /app/public/icons/
+          volumeMounts:
+            - name: homarr-storage-pvc
+              mountPath: /app
+              subPath: .

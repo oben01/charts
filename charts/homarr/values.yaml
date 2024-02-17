@@ -19,23 +19,23 @@ env:
   DEFAULT_COLOR_SCHEME: "dark"
 
 # -- Secrets for Docker registry
-imagePullSecrets: []
+imagePullSecrets: [ ]
 # -- Overrides chart's name
 nameOverride: ""
 # -- Overrides chart's fullname
 fullnameOverride: ""
 
 # -- Pod annotations
-podAnnotations: {}
+podAnnotations: { }
 # -- Pod labels
-podLabels: {}
+podLabels: { }
 
 # -- Pod security context
-podSecurityContext: {}
+podSecurityContext: { }
 # fsGroup: 2000
 
 # -- Security context
-securityContext: {}
+securityContext: { }
 #   capabilities:
 #     drop:
 #     - ALL
@@ -59,8 +59,8 @@ ingress:
   # -- Ingress class name
   ingressClassName: ""
   # -- Ingress annotations
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
+  annotations: { }
+  # kubernetes.io/ingress.class: nginx
   # kubernetes.io/tls-acme: "true"
   # -- Ingress hosts configuration
   hosts:
@@ -69,13 +69,13 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   # -- Ingress TLS configuration
-  tls: []
+  tls: [ ]
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
 
 # -- Resource configuration
-resources: {}
+resources: { }
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -83,8 +83,8 @@ resources: {}
   # limits:
   #   cpu: 100m
   #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
+# requests:
+#   cpu: 100m
 #   memory: 128Mi
 
 # -- Autoscaling configuration
@@ -103,43 +103,26 @@ autoscaling:
 
 # -- Persistent storage configuration
 persistence:
-  - name: homarr-config
-    # -- Enable homarr-config persistent storage
-    enabled: false
-    # -- homarr-config storage class name
-    storageClassName: "local-path"
-    # -- homarr-config access mode
-    accessMode: "ReadWriteOnce"
-    # -- homarr-config storage size
-    size: "50Mi"
-    # -- homarr-config mount path inside the pod
-    mountPath: "/app/data/configs"
-  - name: homarr-database
-    # -- Enable homarr-database persistent storage
-    enabled: false
-    # -- homarr-database storage class name
-    storageClassName: "local-path"
-    # -- homarr-database access mode
-    accessMode: "ReadWriteOnce"
-    # -- homarr-database storage size
-    size: "50Mi"
-    # -- homarr-database mount path inside the pod
-    mountPath: "/app/database"
-  - name: homarr-icons
-    # -- Enable homarr-icons persistent storage
-    enabled: false
-    # -- homarr-icons storage class name
-    storageClassName: "local-path"
-    # -- homarr-icons access mode
-    accessMode: "ReadWriteOnce"
-    # -- homarr-icons storage size
-    size: "50Mi"
-    # -- homarr-icons mount path inside the pod
-    mountPath: "/app/public/icons"
+  enabled: true
+  volumesMergesEnabled: true
+  name: "homarr-storage"
+  storageClassName: "standard"
+  accessMode: "ReadWriteOnce"
+  size: "150Mi"
+  mountPaths:
+    - name: homarr-config
+      # -- homarr-config mount path inside the pod
+      mountPath: "/app/data/configs"
+    - name: homarr-database
+      # -- homarr-database mount path inside the pod
+      mountPath: "/app/database"
+    - name: homarr-icons
+      # -- homarr-icons mount path inside the pod
+      mountPath: "/app/public/icons"
 
 # -- Node selectors for pod scheduling
-nodeSelector: {}
+nodeSelector: { }
 # -- Node tolerations for pod scheduling
-tolerations: []
+tolerations: [ ]
 # -- Node affinity for pod scheduling
-affinity: {}
+affinity: { }

@@ -1,16 +1,13 @@
-{{- range .Values.persistence }}
-{{- if .enabled }}
+{{- if .Values.persistence.enabled }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
- name: {{ .name }}
+ name: {{ .Values.persistence.name }}-pvc
 spec:
  accessModes:
-  - {{ .accessMode }}
- storageClassName: "{{ .storageClassName }}"
+  - {{ .Values.persistence.accessMode }}
+ storageClassName: "{{ .Values.persistence.storageClassName }}"
  resources:
   requests:
-   storage: {{ .size }}
----
-{{- end }}
+   storage: {{ .Values.persistence.size }}
 {{- end }}

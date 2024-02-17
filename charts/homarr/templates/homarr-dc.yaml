@@ -55,19 +55,18 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-          {{- range .Values.persistence }}
-          {{- if .enabled }}
-           - name: {{ .name }}
+          {{- if .Values.persistence.enabled }}
+          {{- range $.Values.persistence.mountPaths }}
+           - name: {{ $.Values.persistence.name }}
              mountPath: {{ .mountPath }}
+             subPath: .
           {{- end }}
           {{- end }}
       volumes:
-        {{- range .Values.persistence }}
-        {{- if .enabled }}
-        - name: {{ .name }}
+        {{- if .Values.persistence.enabled }}
+        - name: {{ .Values.persistence.name }}
           persistentVolumeClaim:
-           claimName: {{ .name }}
-        {{- end }}
+           claimName: {{ .Values.persistence.name }}-pvc
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
