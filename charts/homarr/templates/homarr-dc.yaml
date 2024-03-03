@@ -52,6 +52,15 @@ spec:
            - name: {{ $key }}
              value: "{{ $value }}"
            {{- end }}
+           {{- range $key, $value := .Values.envSecrets }}
+           {{- if (and (ne $value nil) (and (ne $value.key nil) (ne $value.name nil))) }}
+           - name: {{ $key }}
+             valueFrom:
+               secretKeyRef:
+                 key: {{ $value.key }}
+                 name: {{ $value.name }}
+           {{- end }}
+           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:

@@ -16,7 +16,7 @@ charts_header='## Chart Overview'
 # Gather all charts
 stable_charts="$(find "$charts_folder" -name "Chart.yaml" | sort)"
 
-sed -i '' '/^'"$charts_header"'$/,$d' "$charts_summary_file"
+sed -i'' '/^'"$charts_header"'$/,$d' "$charts_summary_file"
 
 {
   echo "$charts_header"
