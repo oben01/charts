@@ -88,7 +88,6 @@ N/A
 | env.AUTH_LDAP_ADMIN_GROUP | string | `"admin"` | Admin group |
 | env.AUTH_LDAP_BASE | string | `nil` | Base dn of your LDAP server |
 | env.AUTH_LDAP_BIND_DN | string | `nil` | User used for finding users and groups |
-| env.AUTH_LDAP_BIND_PASSWORD | string | `nil` | Password for bind user |
 | env.AUTH_LDAP_GROUP_CLASS | string | `"groupOfUniqueNames"` | Class used for querying groups |
 | env.AUTH_LDAP_GROUP_MEMBER_ATTRIBUTE | string | `"member"` | Attribute used for querying group member |
 | env.AUTH_LDAP_GROUP_MEMBER_USER_ATTRIBUTE | string | `"dn"` | User attribute used for comparing with group member |
@@ -96,14 +95,15 @@ N/A
 | env.AUTH_LDAP_URI | string | `nil` | URI of your LDAP server |
 | env.AUTH_LDAP_USERNAME_ATTRIBUTE | string | `"uid"` | Attribute used for username |
 | env.AUTH_OIDC_ADMIN_GROUP | string | `"admin"` | Admin group |
-| env.AUTH_OIDC_CLIENT_ID | string | `nil` | ID of OIDC client (application) |
 | env.AUTH_OIDC_CLIENT_NAME | string | `"OIDC"` | Display name of provider (in login screen) |
-| env.AUTH_OIDC_CLIENT_SECRET | string | `nil` | Secret of OIDC client (application) |
 | env.AUTH_OIDC_OWNER_GROUP | string | `"admin"` | Owner group |
 | env.AUTH_OIDC_URI | string | `nil` | URI of OIDC provider |
 | env.AUTH_PROVIDER | string | `"credentials"` | Enabled authentication methods. Multiple providers can be enabled with by separating them with , (ex. AUTH_PROVIDER=credentials,oidc, it is highly recommended to just enable one provider). |
 | env.DEFAULT_COLOR_SCHEME | string | `"dark"` | Colors and preferences, possible values dark / light |
 | env.TZ | string | `"Europe/Paris"` | Your local time zone |
+| envSecrets.AUTH_LDAP_BIND_PASSWORD | object | `{"key":null,"name":null}` | Password for bind user |
+| envSecrets.AUTH_OIDC_CLIENT_ID | object | `{"key":null,"name":null}` | ID of OIDC client (application) |
+| envSecrets.AUTH_OIDC_CLIENT_SECRET | object | `{"key":null,"name":null}` | Secret of OIDC client (application) |
 | fullnameOverride | string | `""` | Overrides chart's fullname |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"ghcr.io/ajnart/homarr"` | Image repository |

@@ -25,8 +25,6 @@ env:
   AUTH_LDAP_BASE:
   # -- User used for finding users and groups
   AUTH_LDAP_BIND_DN:
-  # -- Password for bind user
-  AUTH_LDAP_BIND_PASSWORD:
   # -- Attribute used for username
   AUTH_LDAP_USERNAME_ATTRIBUTE: "uid"
   # -- Class used for querying groups
@@ -41,16 +39,31 @@ env:
   AUTH_LDAP_OWNER_GROUP: "admin"
   # -- URI of OIDC provider
   AUTH_OIDC_URI:
-  # -- ID of OIDC client (application)
-  AUTH_OIDC_CLIENT_ID:
-  # -- Secret of OIDC client (application)
-  AUTH_OIDC_CLIENT_SECRET:
   # -- Display name of provider (in login screen)
   AUTH_OIDC_CLIENT_NAME: "OIDC"
   # -- Admin group
   AUTH_OIDC_ADMIN_GROUP: "admin"
   # -- Owner group
   AUTH_OIDC_OWNER_GROUP: "admin"
+
+# Sensitive values that need to be passed in through environment variables should use kubernetes secrets. In order
+# to use this, create the secret in your target namespace before applying this helm chart. If you really want to,
+# you CAN just put these in the env block above, but that is not recommended.
+envSecrets:
+  # -- ID of OIDC client (application)
+  AUTH_OIDC_CLIENT_ID:
+   key: # key name within the secret
+   name: # name of the secret
+
+  # -- Secret of OIDC client (application)
+  AUTH_OIDC_CLIENT_SECRET:
+    key: # key name within the secret
+    name: # name of the secret
+
+  # -- Password for bind user
+  AUTH_LDAP_BIND_PASSWORD:
+    key: # key name within the secret
+    name: # name of the secret
 
 # -- Secrets for Docker registry
 imagePullSecrets: []
