@@ -3,7 +3,7 @@ name: homarr
 description: A Helm chart to deploy homarr for Kubernetes
 home: https://oben01.github.io/charts/charts/homarr/
 type: application
-version: 1.2.0
+version: 1.2.1
 # renovate datasource=docker depName=ghcr.io/ajnart/homarr
 appVersion: "0.15.1"
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
@@ -19,7 +19,7 @@ annotations:
     url: https://oben01.github.io/charts/pgp_keys.asc
   artifacthub.io/changes: |-
     - kind: changed
-      description: use secret for sensitive data Thank to @btajuddin
+      description: Update ghcr.io/ajnart/homarr docker tag to v0.15.1
   artifacthub.io/links: |-
     - name: App Source
       url: https://github.com/ajnart/homarr
