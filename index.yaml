@@ -165,6 +165,38 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update ghcr.io/ajnart/homarr docker tag to v0.15.1
+        - kind: added
+          description: added AUTH_OIDC_SCOPE_OVERWRITE and AUTH_LDAP_SEARCH_SCOPE variables
+      artifacthub.io/links: |-
+        - name: App Source
+          url: https://github.com/ajnart/homarr
+        - name: Chart Source
+          url: https://github.com/oben01/charts/tree/main/charts/homarr
+      artifacthub.io/signKey: |
+        fingerprint: FA3F63F603B62356663A88F073AE49623786E060
+        url: https://oben01.github.io/charts/pgp_keys.asc
+    apiVersion: v2
+    appVersion: 0.15.1
+    created: "2024-03-15T17:07:37.874061521Z"
+    description: A Helm chart to deploy homarr for Kubernetes
+    digest: 829f4bef7e966479798f6bc56040e70e04b02182099ea40961cb6240e0da6dad
+    home: https://oben01.github.io/charts/charts/homarr/
+    icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
+    keywords:
+    - homarr
+    - dashboard
+    kubeVersion: '>=1.22.0-0'
+    name: homarr
+    sources:
+    - https://github.com/ajnart/homarr
+    type: application
+    urls:
+    - https://github.com/oben01/charts/releases/download/homarr-1.2.1/homarr-1.2.1.tgz
+    version: 1.2.1
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: use secret for sensitive data Thank to @btajuddin
       artifacthub.io/links: |-
         - name: App Source
@@ -408,4 +440,4 @@ entries:
     urls:
     - https://github.com/oben01/charts/releases/download/homarr-1.0.1/homarr-1.0.1.tgz
     version: 1.0.1
-generated: "2024-03-03T17:06:42.219351241Z"
+generated: "2024-03-15T17:07:37.874107066Z"
