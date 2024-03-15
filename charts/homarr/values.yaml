@@ -10,7 +10,7 @@ image:
   # -- Image pull policy
   pullPolicy: IfNotPresent
   # -- Overrides the image tag whose default is the chart appVersion
-  tag: "0.15.0"
+  tag: "0.15.1"
 
 env:
   # -- Your local time zone
@@ -37,6 +37,8 @@ env:
   AUTH_LDAP_ADMIN_GROUP: "admin"
   # -- Owner group
   AUTH_LDAP_OWNER_GROUP: "admin"
+  # -- LDAP search scope between base, one or sub
+  AUTH_LDAP_SEARCH_SCOPE: "base"
   # -- URI of OIDC provider
   AUTH_OIDC_URI:
   # -- Display name of provider (in login screen)
@@ -45,6 +47,8 @@ env:
   AUTH_OIDC_ADMIN_GROUP: "admin"
   # -- Owner group
   AUTH_OIDC_OWNER_GROUP: "admin"
+  # -- Override the OIDC scopes
+  AUTH_OIDC_SCOPE_OVERWRITE: "openid email profile groups"
 
 # Sensitive values that need to be passed in through environment variables should use kubernetes secrets. In order
 # to use this, create the secret in your target namespace before applying this helm chart. If you really want to,
