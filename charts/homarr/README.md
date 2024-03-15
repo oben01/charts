@@ -92,11 +92,13 @@ N/A
 | env.AUTH_LDAP_GROUP_MEMBER_ATTRIBUTE | string | `"member"` | Attribute used for querying group member |
 | env.AUTH_LDAP_GROUP_MEMBER_USER_ATTRIBUTE | string | `"dn"` | User attribute used for comparing with group member |
 | env.AUTH_LDAP_OWNER_GROUP | string | `"admin"` | Owner group |
+| env.AUTH_LDAP_SEARCH_SCOPE | string | `"base"` | LDAP search scope between base, one or sub |
 | env.AUTH_LDAP_URI | string | `nil` | URI of your LDAP server |
 | env.AUTH_LDAP_USERNAME_ATTRIBUTE | string | `"uid"` | Attribute used for username |
 | env.AUTH_OIDC_ADMIN_GROUP | string | `"admin"` | Admin group |
 | env.AUTH_OIDC_CLIENT_NAME | string | `"OIDC"` | Display name of provider (in login screen) |
 | env.AUTH_OIDC_OWNER_GROUP | string | `"admin"` | Owner group |
+| env.AUTH_OIDC_SCOPE_OVERWRITE | string | `"openid email profile groups"` | Override the OIDC scopes |
 | env.AUTH_OIDC_URI | string | `nil` | URI of OIDC provider |
 | env.AUTH_PROVIDER | string | `"credentials"` | Enabled authentication methods. Multiple providers can be enabled with by separating them with , (ex. AUTH_PROVIDER=credentials,oidc, it is highly recommended to just enable one provider). |
 | env.DEFAULT_COLOR_SCHEME | string | `"dark"` | Colors and preferences, possible values dark / light |
