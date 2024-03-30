@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg" align="right" width="92" alt="dashdot logo">
 
-![Version: 1.0.5](https://img.shields.io/badge/Version-1.0.5-informational?style=flat)
+![Version: 1.0.6](https://img.shields.io/badge/Version-1.0.6-informational?style=flat)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat)
 ![AppVersion: v5.8.3](https://img.shields.io/badge/AppVersion-v5.8.3-informational?style=flat)
 
@@ -11,7 +11,7 @@ A Helm chart to deploy dashdot for Kubernetes
 **Homepage:** <https://oben01.github.io/charts/charts/dashdot/>
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised
-[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=dashdot&version=1.0.5)**
+[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=dashdot&version=1.0.6)**
 
 ## Source Code
 
@@ -106,11 +106,11 @@ N/A
 | image.repository | string | `"mauricenino/dashdot"` | Image repository |
 | image.tag | string | `"5.8.3"` | Overrides the image tag whose default is the chart appVersion |
 | imagePullSecrets | list | `[]` | Secrets for Docker registry |
-| ingress | object | `{"annotations":{},"className":"","enabled":false,"hosts":[{"host":"chart-example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}` | Ingress configuration |
+| ingress | object | `{"annotations":{},"className":"","enabled":false,"hosts":[{"host":"chart-example.local","paths":[{"path":"/"}]}],"tls":[]}` | Ingress configuration |
 | ingress.annotations | object | `{}` | Ingress annotations |
 | ingress.className | string | `""` | Ingress class name |
 | ingress.enabled | bool | `false` | Enable ingress |
-| ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}]` | Ingress hosts configuration |
+| ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/"}]}]` | Ingress hosts configuration |
 | ingress.tls | list | `[]` | Ingress TLS configuration |
 | nameOverride | string | `""` | Overrides chart's name |
 | nodeSelector | object | `{}` | Node selectors for pod scheduling |

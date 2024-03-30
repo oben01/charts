@@ -1,4 +1,4 @@
-https://pre-commit.com/
+https://pre-commit.com/ => sudo apt install pre-commit
 https://github.com/mikefarah/yq
 https://github.com/norwoodj/helm-docs
 https://github.com/artifacthub/hub/releases
