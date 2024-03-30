@@ -106,7 +106,7 @@ service:
 # -- Ingress configuration
 ingress:
   # -- Enable ingress
-  enabled: false
+  enabled: true
   # -- Ingress class name
   ingressClassName: ""
   # -- Ingress annotations

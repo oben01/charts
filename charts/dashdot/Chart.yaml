@@ -3,7 +3,7 @@ name: dashdot
 description: A Helm chart to deploy dashdot for Kubernetes
 home: https://oben01.github.io/charts/charts/dashdot/
 type: application
-version: 1.0.6
+version: 1.0.7
 # renovate datasource=docker depName=ghcr.io/mauricenino/dashdot
 appVersion: v5.8.3
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg
@@ -18,8 +18,8 @@ annotations:
     fingerprint: FA3F63F603B62356663A88F073AE49623786E060
     url: https://oben01.github.io/charts/pgp_keys.asc
   artifacthub.io/changes: |-
-    - kind: changed
-      description: set PathType to Prefix
+    - kind: fixed
+      description: fix used of ingressClassName
   artifacthub.io/links: |-
     - name: App Source
       url: https://github.com/MauriceNino/dashdot
