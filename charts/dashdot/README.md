@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg" align="right" width="92" alt="dashdot logo">
 
-![Version: 1.0.7](https://img.shields.io/badge/Version-1.0.7-informational?style=flat)
+![Version: 1.0.8](https://img.shields.io/badge/Version-1.0.8-informational?style=flat)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat)
 ![AppVersion: v5.8.3](https://img.shields.io/badge/AppVersion-v5.8.3-informational?style=flat)
 
@@ -11,7 +11,7 @@ A Helm chart to deploy dashdot for Kubernetes
 **Homepage:** <https://oben01.github.io/charts/charts/dashdot/>
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised
-[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=dashdot&version=1.0.7)**
+[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=dashdot&version=1.0.8)**
 
 ## Source Code
 
@@ -101,10 +101,10 @@ N/A
 | env.DASHDOT_WIDGET_LIST | string | `"os,cpu,storage,ram,network"` | The available options are: os, cpu, storage, ram, network, gpu. |
 | env.TZ | string | `"Europe/Paris"` | Your local time zone |
 | fullnameOverride | string | `""` | Overrides chart's fullname |
-| image | object | `{"pullPolicy":"IfNotPresent","repository":"mauricenino/dashdot","tag":"5.8.3"}` | Number of replicas |
+| image | object | `{"pullPolicy":"IfNotPresent","repository":"mauricenino/dashdot","tag":"5.8.4"}` | Number of replicas |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"mauricenino/dashdot"` | Image repository |
-| image.tag | string | `"5.8.3"` | Overrides the image tag whose default is the chart appVersion |
+| image.tag | string | `"5.8.4"` | Overrides the image tag whose default is the chart appVersion |
 | imagePullSecrets | list | `[]` | Secrets for Docker registry |
 | ingress | object | `{"annotations":{},"enabled":false,"hosts":[{"host":"chart-example.local","paths":[{"path":"/"}]}],"ingressClassName":"","tls":[]}` | Ingress configuration |
 | ingress.annotations | object | `{}` | Ingress annotations |
