@@ -5,7 +5,7 @@ home: https://oben01.github.io/charts/charts/dashdot/
 type: application
 version: 1.0.10
 # renovate datasource=docker depName=ghcr.io/mauricenino/dashdot
-appVersion: 5.8.5
+appVersion: 5.8.6
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg
 kubeVersion: ">=1.22.0-0"
 keywords:
