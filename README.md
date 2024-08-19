@@ -15,3 +15,7 @@ Also available on [ArtifactHub](https://artifacthub.io/packages/search?repo=oben
 | ----- | ----------- |
 | [Dashdot <img src='https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg' alt='dashdot icon' width='18px' align='right' loading='lazy'>](charts/dashdot/) | A Helm chart to deploy dashdot for Kubernetes |
 | [Homarr <img src='https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg' alt='homarr icon' width='18px' align='right' loading='lazy'>](charts/homarr/) | A Helm chart to deploy homarr for Kubernetes |
+
+# Contributing
+
+We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see "[About contributing to Chart.](https://github.com/oben01/charts/blob/main/.github/CONTRIBUTING.md)"

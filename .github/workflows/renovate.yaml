@@ -49,12 +49,7 @@ jobs:
         run: |
           set -eux
           export DESCRIPTION="$(perl -pe 's/^.+?: (.)/\U$1/' <<<"$TITLE")"
-          CHANGELOG="$(yq -o json '[{"kind": "changed", "description": strenv(DESCRIPTION)}]')"
-          UPDATE_TYPE=replace
-          if [[ "$CHANGELOG_APPEND" == "true" ]]; then
-            UPDATE_TYPE=append
-          fi
-          ./hack/update-changelog.sh "$UPDATE_TYPE" "$CHANGELOG" ${{ steps.changes.outputs.charts_files }}
+          ./hack/update-changelog.sh "changed" "$DESCRIPTION" ${{ steps.changes.outputs.charts_files }}
 
       - name: Set type to patch
         if: contains(steps.pr.outputs.labels, 'patch') || contains(steps.pr.outputs.labels, 'digest')
