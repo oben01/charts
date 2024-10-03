@@ -3,9 +3,9 @@ name: dashdot
 description: A Helm chart to deploy dashdot for Kubernetes
 home: https://oben01.github.io/charts/charts/dashdot/
 type: application
-version: 1.0.11
+version: 1.1.0
 # renovate datasource=docker depName=ghcr.io/mauricenino/dashdot
-appVersion: 5.8.6
+appVersion: 5.9.0
 icon: https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg
 kubeVersion: ">=1.22.0-0"
 keywords:
@@ -19,7 +19,7 @@ annotations:
     url: https://oben01.github.io/charts/pgp_keys.asc
   artifacthub.io/changes: |-
     - kind: changed
-      description: Update ghcr.io/mauricenino/dashdot docker tag to v5.8.6
+      description: Update ghcr.io/mauricenino/dashdot docker tag to v5.9.0
   artifacthub.io/links: |-
     - name: App Source
       url: https://github.com/MauriceNino/dashdot
