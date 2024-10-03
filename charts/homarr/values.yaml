@@ -17,6 +17,8 @@ env:
   TZ: "Europe/Paris"
   # -- Colors and preferences, possible values dark / light
   DEFAULT_COLOR_SCHEME: "dark"
+  # -- URL for the Homarr database
+  DATABASE_URL: file:/app/database/db.sqlite
   # -- Enabled authentication methods. Multiple providers can be enabled with by separating them with , (ex. AUTH_PROVIDER=credentials,oidc, it is highly recommended to just enable one provider).
   AUTH_PROVIDER: "credentials"
   # -- URI of your LDAP server

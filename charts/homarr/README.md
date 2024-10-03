@@ -103,6 +103,7 @@ N/A
 | env.AUTH_PROVIDER | string | `"credentials"` | Enabled authentication methods. Multiple providers can be enabled with by separating them with , (ex. AUTH_PROVIDER=credentials,oidc, it is highly recommended to just enable one provider). |
 | env.DEFAULT_COLOR_SCHEME | string | `"dark"` | Colors and preferences, possible values dark / light |
 | env.TZ | string | `"Europe/Paris"` | Your local time zone |
+| env.DATABASE_URL | string | `file:/app/database/db.sqlite` | URL for the Homarr database |
 | envSecrets.AUTH_LDAP_BIND_PASSWORD | object | `{"key":null,"name":null}` | Password for bind user |
 | envSecrets.AUTH_OIDC_CLIENT_ID | object | `{"key":null,"name":null}` | ID of OIDC client (application) |
 | envSecrets.AUTH_OIDC_CLIENT_SECRET | object | `{"key":null,"name":null}` | Secret of OIDC client (application) |
