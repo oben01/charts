@@ -76,6 +76,11 @@ markdown_extensions:
   - pymdownx.superfences
   - toc:
       permalink: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 watch:
   - overrides
