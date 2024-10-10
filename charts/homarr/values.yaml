@@ -193,3 +193,33 @@ nodeSelector: {}
 tolerations: []
 # -- Node affinity for pod scheduling
 affinity: {}
+
+livenessProbe:
+  httpGet:
+    # -- This is the liveness check endpoint used by Kubernetes to determine if the application is still running.
+    path: /
+    # -- The port on which the liveness check will be performed. This must be the same as the container port exposed by the application.
+    port: 7575
+  # -- Number of seconds after the container has started before startup
+  initialDelaySeconds: 10
+  # -- Number of seconds after which the probe times out
+  timeoutSeconds: 3
+  # -- How often (in seconds) to perform the liveness probe.
+  periodSeconds: 10
+  # -- The number of consecutive failed liveness probe attempts before the container is considered unhealthy.
+  failureThreshold: 5
+
+readinessProbe:
+  httpGet:
+    # -- This is the readiness check endpoint used by Kubernetes to determine if the application is ready to handle traffic.
+    path: /
+    # -- The port on which the readiness check will be performed. This must match the container's exposed port.
+    port: 7575
+  # -- Number of seconds after the container has started before startup
+  initialDelaySeconds: 10
+  # -- Number of seconds after which the probe times out
+  timeoutSeconds: 3
+  # -- How often (in seconds) to perform the readiness probe.
+  periodSeconds: 10
+  # -- The number of consecutive failed readiness probe attempts before the container is considered "Not Ready."
+  failureThreshold: 5

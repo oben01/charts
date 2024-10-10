@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg" align="right" width="92" alt="homarr logo">
 
-![Version: 1.2.6](https://img.shields.io/badge/Version-1.2.6-informational?style=flat)
+![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat)
 ![AppVersion: 0.15.4](https://img.shields.io/badge/AppVersion-0.15.4-informational?style=flat)
 
@@ -11,7 +11,7 @@ A Helm chart to deploy homarr for Kubernetes
 **Homepage:** <https://oben01.github.io/charts/charts/homarr/>
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised
-[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=homarr&version=1.2.6)**
+[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=homarr&version=1.3.0)**
 
 ## Source Code
 
@@ -117,6 +117,12 @@ N/A
 | ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/"}]}]` | Ingress hosts configuration |
 | ingress.ingressClassName | string | `""` | Ingress class name |
 | ingress.tls | list | `[]` | Ingress TLS configuration |
+| livenessProbe.failureThreshold | int | `5` | The number of consecutive failed liveness probe attempts before the container is considered unhealthy. |
+| livenessProbe.httpGet.path | string | `"/"` | This is the liveness check endpoint used by Kubernetes to determine if the application is still running. |
+| livenessProbe.httpGet.port | int | `7575` | The port on which the liveness check will be performed. This must be the same as the container port exposed by the application. |
+| livenessProbe.initialDelaySeconds | int | `10` | Number of seconds after the container has started before startup |
+| livenessProbe.periodSeconds | int | `10` | How often (in seconds) to perform the liveness probe. |
+| livenessProbe.timeoutSeconds | int | `3` | Number of seconds after which the probe times out |
 | nameOverride | string | `""` | Overrides chart's name |
 | nodeSelector | object | `{}` | Node selectors for pod scheduling |
 | persistence | list | `[{"accessMode":"ReadWriteOnce","enabled":false,"mountPath":"/app/data/configs","name":"homarr-config","size":"50Mi","storageClassName":"local-path"},{"accessMode":"ReadWriteOnce","enabled":false,"mountPath":"/app/database","name":"homarr-database","size":"50Mi","storageClassName":"local-path"},{"accessMode":"ReadWriteOnce","enabled":false,"mountPath":"/app/public/icons","name":"homarr-icons","size":"50Mi","storageClassName":"local-path"}]` | Persistent storage configuration |
@@ -138,6 +144,12 @@ N/A
 | podAnnotations | object | `{}` | Pod annotations |
 | podLabels | object | `{}` | Pod labels |
 | podSecurityContext | object | `{}` | Pod security context |
+| readinessProbe.failureThreshold | int | `5` | The number of consecutive failed readiness probe attempts before the container is considered "Not Ready." |
+| readinessProbe.httpGet.path | string | `"/"` | This is the readiness check endpoint used by Kubernetes to determine if the application is ready to handle traffic. |
+| readinessProbe.httpGet.port | int | `7575` | The port on which the readiness check will be performed. This must match the container's exposed port. |
+| readinessProbe.initialDelaySeconds | int | `10` | Number of seconds after the container has started before startup |
+| readinessProbe.periodSeconds | int | `10` | How often (in seconds) to perform the readiness probe. |
+| readinessProbe.timeoutSeconds | int | `3` | Number of seconds after which the probe times out |
 | replicaCount | int | `1` | Number of replicas |
 | resources | object | `{}` | Resource configuration |
 | securityContext | object | `{}` | Security context |
