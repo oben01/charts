@@ -2,16 +2,16 @@
 
 <img src="https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg" align="right" width="92" alt="homarr logo">
 
-![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat)
+![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat)
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat)
-![AppVersion: 0.15.4](https://img.shields.io/badge/AppVersion-0.15.4-informational?style=flat)
+![AppVersion: 0.15.5](https://img.shields.io/badge/AppVersion-0.15.5-informational?style=flat)
 
 A Helm chart to deploy homarr for Kubernetes
 
 **Homepage:** <https://oben01.github.io/charts/charts/homarr/>
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised
-[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=homarr&version=1.3.0)**
+[here](https://github.com/oben01/charts/issues/new?assignees=oben01&labels=bug&template=bug_report.yaml&name=homarr&version=1.3.1)**
 
 ## Source Code
 
@@ -109,7 +109,7 @@ N/A
 | fullnameOverride | string | `""` | Overrides chart's fullname |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"ghcr.io/ajnart/homarr"` | Image repository |
-| image.tag | string | `"0.15.4"` | Overrides the image tag whose default is the chart appVersion |
+| image.tag | string | `"0.15.5"` | Overrides the image tag whose default is the chart appVersion |
 | imagePullSecrets | list | `[]` | Secrets for Docker registry |
 | ingress | object | `{"annotations":{},"enabled":true,"hosts":[{"host":"chart-example.local","paths":[{"path":"/"}]}],"ingressClassName":"","tls":[]}` | Ingress configuration |
 | ingress.annotations | object | `{}` | Ingress annotations |
