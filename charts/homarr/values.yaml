@@ -49,6 +49,8 @@ env:
   AUTH_OIDC_OWNER_GROUP: "admin"
   # -- Override the OIDC scopes
   AUTH_OIDC_SCOPE_OVERWRITE: "openid email profile groups"
+  # -- URL for the Homarr database
+  DATABASE_URL: file:/app/database/db.sqlite
 
 # Sensitive values that need to be passed in through environment variables should use kubernetes secrets. In order
 # to use this, create the secret in your target namespace before applying this helm chart. If you really want to,
