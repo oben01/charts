@@ -374,6 +374,36 @@ entries:
   homarr:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: added
+          description: add DATABASE_URL
+      artifacthub.io/links: |-
+        - name: App Source
+          url: https://github.com/ajnart/homarr
+        - name: Chart Source
+          url: https://github.com/oben01/charts/tree/main/charts/homarr
+      artifacthub.io/signKey: |
+        fingerprint: FA3F63F603B62356663A88F073AE49623786E060
+        url: https://oben01.github.io/charts/pgp_keys.asc
+    apiVersion: v2
+    appVersion: 0.15.7
+    created: "2024-11-13T20:26:40.917746765Z"
+    description: A Helm chart to deploy homarr for Kubernetes
+    digest: b84b241e03e77c36ed78c7aebd081da6a01023fe2c5020f0066ac773012b5c89
+    home: https://oben01.github.io/charts/charts/homarr/
+    icon: https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg
+    keywords:
+    - homarr
+    - dashboard
+    kubeVersion: '>=1.22.0-0'
+    name: homarr
+    sources:
+    - https://github.com/ajnart/homarr
+    type: application
+    urls:
+    - https://github.com/oben01/charts/releases/download/homarr-1.3.5/homarr-1.3.5.tgz
+    version: 1.3.5
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: fixed
           description: fix duplication for livenessProbe and readinessProbe
       artifacthub.io/links: |-
@@ -950,4 +980,4 @@ entries:
     urls:
     - https://github.com/oben01/charts/releases/download/homarr-1.0.1/homarr-1.0.1.tgz
     version: 1.0.1
-generated: "2024-11-13T16:33:54.784171311Z"
+generated: "2024-11-13T20:26:40.917891125Z"
