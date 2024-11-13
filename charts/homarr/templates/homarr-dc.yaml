@@ -41,16 +41,8 @@ spec:
               protocol: TCP
           livenessProbe:
 {{ toYaml .Values.livenessProbe | indent 12 }}
-            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
-            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
-            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
-            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
           readinessProbe:
 {{ toYaml .Values.readinessProbe | indent 12 }}
-            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
-            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
-            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
-            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
           env:
            {{- range $key, $value := .Values.env }}
            - name: {{ $key }}
