@@ -8,7 +8,7 @@ command -v yq >/dev/null 2>&1 || {
   exit 1
 }
 
-if [ "$#" -lt 3 ]; then
+if [ "$#" -lt 2 ]; then
     echo 'Usage: change_kind description [chart...]'
     echo 'Example: ./update-changelog.sh "fixed" "hot fix" ../charts/homarr/Chart.yaml'
     exit 1

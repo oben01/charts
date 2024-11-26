@@ -46,11 +46,11 @@ jobs:
         env:
           TITLE: ${{ steps.pr.outputs.title }}
           CHANGELOG_APPEND: ${{ contains(steps.pr.outputs.labels, 'changelog-append') }}
+          TEST: ${{ steps.changes.outputs.charts_files }}
         run: |
           set -eux
           export DESCRIPTION="$(perl -pe 's/^.+?: (.)/\U$1/' <<<"$TITLE")"
-          export CHANGE_KIND='changed'
-          ./hack/update-changelog.sh "$CHANGE_KIND" "$DESCRIPTION" ${{ steps.changes.outputs.charts_files }}
+          ./hack/update-changelog.sh changed "$DESCRIPTION" ${{ steps.changes.outputs.charts_files }}
 
       - name: Set type to patch
         if: contains(steps.pr.outputs.labels, 'patch') || contains(steps.pr.outputs.labels, 'digest')
