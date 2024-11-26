@@ -4,6 +4,36 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: Update mauricenino/dashdot docker tag to v5.9.0
+      artifacthub.io/links: |-
+        - name: App Source
+          url: https://github.com/MauriceNino/dashdot
+        - name: Chart Source
+          url: https://github.com/oben01/charts/tree/main/charts/dashdot
+      artifacthub.io/signKey: |
+        fingerprint: FA3F63F603B62356663A88F073AE49623786E060
+        url: https://oben01.github.io/charts/pgp_keys.asc
+    apiVersion: v2
+    appVersion: 5.9.0
+    created: "2024-11-26T19:16:03.665075507Z"
+    description: A Helm chart to deploy dashdot for Kubernetes
+    digest: 62d721232725dbdc6b201e49e19871661aa33829a6e62f495e0e06dca45e1cbc
+    home: https://oben01.github.io/charts/charts/dashdot/
+    icon: https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg
+    keywords:
+    - dashdot
+    - dashboard
+    kubeVersion: '>=1.22.0-0'
+    name: dashdot
+    sources:
+    - https://github.com/MauriceNino/dashdot
+    type: application
+    urls:
+    - https://github.com/oben01/charts/releases/download/dashdot-1.2.0/dashdot-1.2.0.tgz
+    version: 1.2.0
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: Update ghcr.io/mauricenino/dashdot docker tag to v5.9.0
       artifacthub.io/links: |-
         - name: App Source
@@ -980,4 +1010,4 @@ entries:
     urls:
     - https://github.com/oben01/charts/releases/download/homarr-1.0.1/homarr-1.0.1.tgz
     version: 1.0.1
-generated: "2024-11-13T20:26:40.917891125Z"
+generated: "2024-11-26T19:16:03.87639392Z"
