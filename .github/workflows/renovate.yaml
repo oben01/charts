@@ -49,7 +49,7 @@ jobs:
         run: |
           set -eux
           export DESCRIPTION="$(perl -pe 's/^.+?: (.)/\U$1/' <<<"$TITLE")"
-          export CHANGE_KIND='changed'
+          export CHANGE_KIND="$(perl -pe 's/^.+?: (.)/\U$1/' <<<changed)"
           ./hack/update-changelog.sh "$CHANGE_KIND" "$DESCRIPTION" ${{ steps.changes.outputs.charts_files }}
 
       - name: Set type to patch
