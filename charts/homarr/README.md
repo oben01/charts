@@ -1,5 +1,12 @@
 # Homarr
 
+---
+## ⚠️ Deprecation Notice
+
+This Helm chart is now **deprecated** and has been **archived**.  
+For future updates and support, please refer to the [official repository on Artifact Hub](https://artifacthub.io/packages/helm/homarr-labs/homarr).
+---
+
 <img src="https://raw.githubusercontent.com/oben01/charts/main/charts/homarr/icon.svg" align="right" width="92" alt="homarr logo">
 
 ![Version: 1.3.8](https://img.shields.io/badge/Version-1.3.8-informational?style=flat)
