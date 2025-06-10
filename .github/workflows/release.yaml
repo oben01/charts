@@ -37,7 +37,6 @@ jobs:
       - name: Add Helm repos
         run: |
           helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo add bjw-s https://bjw-s.github.io/helm-charts
 
       - name: Remove readme images
         run: |
