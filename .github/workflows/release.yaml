@@ -148,7 +148,7 @@ jobs:
         run: tar -czvf docs.tar.gz -C docs site
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: docs
           path: docs.tar.gz
@@ -168,7 +168,7 @@ jobs:
           ref: refs/heads/helm-index
 
       - name: Download docs artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: docs
 
